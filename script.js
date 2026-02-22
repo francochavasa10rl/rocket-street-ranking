@@ -94,8 +94,8 @@ async function generateImage() {
   // ===== TEAMS =====
   const teams = document.querySelectorAll("#teams li");
 
-  let startY = 250;
-  const spacing = 65;
+let startY = 320;   // antes era 430
+const spacing = 65; // antes era 60
 
   for (let i = 0; i < teams.length; i++) {
 
@@ -124,4 +124,5 @@ async function generateImage() {
 
 
 document.getElementById("downloadBtn").addEventListener("click", generateImage);
+
 
