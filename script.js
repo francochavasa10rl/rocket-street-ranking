@@ -108,14 +108,14 @@ async function generateImage() {
     ctx.fillStyle = "#bbff00";
     ctx.textAlign = "center";
     ctx.font = "bold 60px BourgeoisBold";
-    ctx.fillText(personName.toUpperCase(), 538, 260);
+    ctx.fillText(personName.toUpperCase(), 538, 255);
   }
 
   /* ===== TEAMS ===== */
 
   const teams = document.querySelectorAll("#teams li");
 
-  let startY = 360;   // ARRANCA EN 360
+  let startY = 340;   // ARRANCA EN 340
   const spacing = 65; // SEPARACIÓN EXACTA
 
   for (let i = 0; i < teams.length; i++) {
@@ -152,6 +152,7 @@ async function generateImage() {
 document
   .getElementById("downloadBtn")
   .addEventListener("click", generateImage);
+
 
 
 
