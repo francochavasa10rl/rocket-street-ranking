@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rocket Street Ranking</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Preload fuente para que Canvas la detecte -->
+  <link rel="preload" href="fonts/Bourgeois-Bold.ttf" as="font" type="font/ttf" crossorigin>
+
+</head>
+<body>
+
+<header class="site-header">
+  <img src="logo.png" class="site-logo">
+  <h2 class="site-title">ROCKET STREET</h2>
+</header>
+
+<div id="ranking">
+  <h1>ARMA TU POWER RANKING</h1>
+
+  <!-- NUEVO: input nombre -->
+  <input 
+    type="text" 
+    id="personName" 
+    placeholder="TU NOMBRE"
+    style="
+      margin-bottom:15px;
+      padding:8px;
+      font-size:14px;
+      text-align:center;
+      border-radius:6px;
+      border:none;
+      width:250px;
+      font-family:'BourgeoisBold', sans-serif;
+    "
+  >
+
+  <ul id="teams"></ul>
+</div>
+
+<button id="downloadBtn">DESCARGAR IMAGEN</button>
+
+<!-- Sortable -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+<!-- IMPORTANTE: quitamos html2canvas -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
