@@ -94,8 +94,8 @@ async function generateImage() {
   // ===== TEAMS =====
   const teams = document.querySelectorAll("#teams li");
 
-  let startY = 430;
-  const spacing = 60;
+  let startY = 320;
+  const spacing = 65;
 
   for (let i = 0; i < teams.length; i++) {
 
@@ -121,5 +121,6 @@ async function generateImage() {
   link.href = canvas.toDataURL("image/png");
   link.click();
 }
+
 
 document.getElementById("downloadBtn").addEventListener("click", generateImage);
