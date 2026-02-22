@@ -108,14 +108,14 @@ async function generateImage() {
     ctx.fillStyle = "#bbff00";
     ctx.textAlign = "center";
     ctx.font = "bold 60px BourgeoisBold";
-    ctx.fillText(personName.toUpperCase(), 538, 233);
+    ctx.fillText(personName.toUpperCase(), 538, 260);
   }
 
   /* ===== TEAMS ===== */
 
   const teams = document.querySelectorAll("#teams li");
 
-  let startY = 320;   // ARRANCA EN 320
+  let startY = 360;   // ARRANCA EN 360
   const spacing = 65; // SEPARACIÓN EXACTA
 
   for (let i = 0; i < teams.length; i++) {
@@ -126,13 +126,13 @@ async function generateImage() {
     const logo = await loadImage(logoSrc);
 
     // Logo
-    ctx.drawImage(logo, 180, startY - 35, 45, 45);
+    ctx.drawImage(logo, 210, startY - 35, 45, 45);
 
     // Nombre equipo
     ctx.fillStyle = "white";
     ctx.textAlign = "left";
     ctx.font = "bold 36px BourgeoisBold";
-    ctx.fillText(teamName.toUpperCase(), 250, startY);
+    ctx.fillText(teamName.toUpperCase(), 300, startY);
 
     startY += spacing;
   }
@@ -152,5 +152,6 @@ async function generateImage() {
 document
   .getElementById("downloadBtn")
   .addEventListener("click", generateImage);
+
 
 
