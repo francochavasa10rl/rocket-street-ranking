@@ -1,3 +1,7 @@
+/* =========================
+   DATA DE EQUIPOS
+========================= */
+
 const teamsData = [
   { name:"TSM", logo:"logos/tsm.png" },
   { name:"FURIA", logo:"logos/furia.png" },
@@ -19,6 +23,10 @@ const teamsData = [
 
 const teamsUl = document.getElementById("teams");
 
+/* =========================
+   RENDER HTML LISTA
+========================= */
+
 function renderTeams() {
   teamsUl.innerHTML = "";
 
@@ -39,6 +47,10 @@ function renderTeams() {
 
 renderTeams();
 
+/* =========================
+   DRAG & DROP
+========================= */
+
 new Sortable(teamsUl, {
   animation: 150,
   onEnd: updatePositions
@@ -53,7 +65,7 @@ function updatePositions() {
 }
 
 /* =========================
-   GENERADOR PRO CON CANVAS
+   CANVAS CONFIG
 ========================= */
 
 const canvas = document.createElement("canvas");
@@ -61,6 +73,10 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = 1080;
 canvas.height = 1350;
+
+/* =========================
+   CARGAR IMAGEN
+========================= */
 
 function loadImage(src) {
   return new Promise((resolve) => {
@@ -71,16 +87,20 @@ function loadImage(src) {
   });
 }
 
+/* =========================
+   GENERAR IMAGEN
+========================= */
+
 async function generateImage() {
 
-  // Limpiar canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Cargar fondo
+  // Fondo
   const bg = await loadImage("background.png");
   ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
-  // ===== NOMBRE PERSONA =====
+  /* ===== NOMBRE PERSONA ===== */
+
   const personNameInput = document.getElementById("personName");
   const personName = personNameInput ? personNameInput.value : "";
 
@@ -88,25 +108,27 @@ async function generateImage() {
     ctx.fillStyle = "#bbff00";
     ctx.textAlign = "center";
     ctx.font = "bold 60px BourgeoisBold";
-    ctx.fillText(personName.toUpperCase(), canvas.width / 2, 330);
+    ctx.fillText(personName.toUpperCase(), 538, 233);
   }
 
-  // ===== TEAMS =====
+  /* ===== TEAMS ===== */
+
   const teams = document.querySelectorAll("#teams li");
 
-let startY = 320;   // antes era 430
-const spacing = 65; // antes era 60
+  let startY = 320;   // ARRANCA EN 320
+  const spacing = 65; // SEPARACIÓN EXACTA
 
   for (let i = 0; i < teams.length; i++) {
 
     const teamName = teams[i].querySelector(".team-name").textContent;
     const logoSrc = teams[i].querySelector("img").src;
 
-    // Logo 1:1
     const logo = await loadImage(logoSrc);
+
+    // Logo
     ctx.drawImage(logo, 180, startY - 35, 45, 45);
 
-    // Team name
+    // Nombre equipo
     ctx.fillStyle = "white";
     ctx.textAlign = "left";
     ctx.font = "bold 36px BourgeoisBold";
@@ -115,14 +137,20 @@ const spacing = 65; // antes era 60
     startY += spacing;
   }
 
-  // Descargar automáticamente
+  /* ===== DESCARGAR ===== */
+
   const link = document.createElement("a");
   link.download = "rocket-street-power-ranking.png";
   link.href = canvas.toDataURL("image/png");
   link.click();
 }
 
+/* =========================
+   BOTÓN
+========================= */
 
-document.getElementById("downloadBtn").addEventListener("click", generateImage);
+document
+  .getElementById("downloadBtn")
+  .addEventListener("click", generateImage);
 
 
