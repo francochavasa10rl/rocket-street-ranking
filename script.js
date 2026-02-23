@@ -161,12 +161,13 @@ input.addEventListener("input", function() {
   counter.textContent = `${length} / 20`;
 
   // Opcional: que se ponga verde cuando llega al límite
-  if (length === 20) {
+  if (length === 25) {
     counter.style.color = "#a52019";
   } else {
     counter.style.color = "#aaa";
   }
 });
+
 
 
 
