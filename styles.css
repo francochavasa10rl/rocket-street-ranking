@@ -54,11 +54,11 @@ body {
 /* ===== RANKING ===== */
 
 #ranking {
-  width: 850px;
+  width: 820px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 #ranking h1 {
@@ -77,16 +77,16 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px; /* separación entre rectángulos */
+  gap: 8px;  /* antes 12 */
 }
 
 #teams li {
   background: #334155;
-  padding: 6px 12px;
+  padding: 5px 12px;
   display: flex;
   align-items: center;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 13px;
   cursor: grab;
   transition: 0.15s ease;
 }
@@ -108,9 +108,9 @@ body {
 /* ===== LOGO 1:1 ===== */
 
 .logo-box {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
   background: #1e293b;
   border-radius: 6px;
   display: flex;
