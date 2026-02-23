@@ -153,6 +153,22 @@ document
   .getElementById("downloadBtn")
   .addEventListener("click", generateImage);
 
+const input = document.getElementById("personName");
+const counter = document.getElementById("charCounter");
+
+input.addEventListener("input", function() {
+  const length = this.value.length;
+  counter.textContent = `${length} / 20`;
+
+  // Opcional: que se ponga verde cuando llega al límite
+  if (length === 20) {
+    counter.style.color = "#a52019";
+  } else {
+    counter.style.color = "#aaa";
+  }
+});
+
+
 
 
 
